@@ -4,7 +4,8 @@ Get going with ROS2.
 
 ## ROS2 installation
 
-Install ROS 2 Foxy Fitzroy following the [instructions on the wiki](https://index.ros.org/doc/ros2/Installation/Foxy/)
+Install ROS 2 Foxy Fitzroy following the [instructions on the wiki](https://index.ros.org/doc/ros2/Installation/Foxy/).
+This [ROS2 setup script](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu) will do the work for you.
 
 ## ROS2 via Docker
 
@@ -12,7 +13,7 @@ Instead of installing ROS2 you can also opt for using Docker.
 
 To install Docker on Ubuntu follow instructions [here](https://docs.docker.com/engine/install/ubuntu/).
 
-Step into 'docker' folder:
+Step into 'docker' folder of this repository:
 ```
 cd docker
 ```

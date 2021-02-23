@@ -22,4 +22,3 @@ docker run --rm \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /home/$USER/:/home/ubuntu/ \
 	tiryoh/ros2-desktop-vnc:$DISTRO
-
