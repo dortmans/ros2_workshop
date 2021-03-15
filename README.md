@@ -20,23 +20,23 @@ cd docker
 
 Build a ROS2 docker image as follows:
 ```
-./build.sh
+./build_ros2.sh
 ```
 This command only has to be run once (or each time after making changes to the Dockerfile).
-If you want you can modify the Dockerfile to install additional packages.
+You can modify the Dockerfile to install additional packages.
 
 To run a ROS2 shell open a terminal and enter following command:
 ```
-./run.sh
+./run_ros2.sh
 ```
 
 You can also directly execute a command, e.g.:
 ```
-./run.sh ros2 topic list
+./run_ros2.sh ros2 topic list
 ```
 or
 ```
-./run.sh rviz2
+./run_ros2.sh rviz2
 ```
 
 Alternatively to run a complete ROS2 desktop in your browser enter following command in a terminal window:

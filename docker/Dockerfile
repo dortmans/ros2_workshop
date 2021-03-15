@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-desktop \
 		ros-$ROS_DISTRO-gazebo-ros-pkgs \
 		ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+		ros-${ROS_DISTRO}-navigation2 \
     && rm -rf /var/lib/apt/lists/*
 
 # nvidia-docker2 settings
@@ -34,3 +35,8 @@ RUN useradd -m $USER && \
     groupmod --gid $GID $USER
 USER $USER
 WORKDIR /home/$USER
+
+# setup entrypoint
+#COPY ./ros_entrypoint.sh /ros_entrypoint.sh
+
+
