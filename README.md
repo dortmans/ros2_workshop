@@ -46,4 +46,15 @@ Alternatively to run a complete ROS2 desktop in your browser enter following com
 Then open `http://localhost` in your browser to access the desktop.
 Use the 'Clipboard' to copy/paste commands.
 
+If you want to execute the scripts mentioned on this page from any directory add the following line to your '.bashrc' file:
+```
+export PATH=$PATH:$HOME/ros2_workshop/docker
+```
+
+You can do this by using an editor or by running following command:
+```
+echo 'export PATH=$PATH:$HOME/ros2_workshop/docker' >> $HOME/.bashrc
+```
+
+Note: The build script should always be run in the ros2_workshop/docker directory.
 
