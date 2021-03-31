@@ -1,3 +1,3 @@
-# Excercises
+# Exercises and background info
 
 
