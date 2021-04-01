@@ -1,7 +1,5 @@
 # ROS2 getting started
 
-[Getting Started with ROS 2](https://discourse.ubuntu.com/t/getting-started-with-ros-2/17847)
-
 Setup
 ```
 source /opt/ros/$ROS_DISTRO/setup.bash
@@ -62,6 +60,9 @@ In another terminal window start rqt_graph to show the ROS2 computation graph an
 rqt_graph
 ```
 
+## References
+
+[Getting Started with ROS 2](https://discourse.ubuntu.com/t/getting-started-with-ros-2/17847)
 
 	 
 	

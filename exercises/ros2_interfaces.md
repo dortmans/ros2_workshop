@@ -21,6 +21,13 @@ rm -rf include/ src/
 mkdir msg srv action
 ```
 
+Take care that git keeps empty directories:
+```
+touch msg/.gitkeep
+touch srv/.gitkeep
+touch action/.gitkeep
+``` 
+
 Put your custom interface definitions in the msg, srv and action directories.
 Let us add an empty message, service and action to be able to test the build process.
 ```
