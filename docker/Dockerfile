@@ -1,4 +1,5 @@
-FROM ros:foxy 
+ARG BASE_IMAGE=ros:foxy
+FROM $BASE_IMAGE
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -7,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 		libgl1-mesa-glx libgl1-mesa-dri \
     mesa-utils mesa-utils-extra \
     iputils-ping \
+    wget curl gnupg2 lsb-release \
     ros-$ROS_DISTRO-desktop \
 		ros-$ROS_DISTRO-gazebo-ros-pkgs \
 		ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
