@@ -38,6 +38,14 @@ Run the bridge:
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 ```
 
+## Run ros1_bridge using docker
+
+Alternative is to run ros1_bridge in a separate docker container. No installation required. Just run following command:
+
+```
+docker run -it --rm --net=host --name=ros1_bridge ros:foxy-ros1-bridge ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+```
+
 [ros1_bridge](https://github.com/ros2/ros1_bridge)
 
 [ROS1-ROS2 Bridge Demo](https://industrial-training-master.readthedocs.io/en/melodic/_source/session7/ROS1-ROS2-bridge.html)
