@@ -7,6 +7,7 @@ General
 
 Tutorials
 
+- [ROS2 concepts](ros2_concepts.md)
 - [ROS2 commandline tools](ros2_commandline.md)
 - [ROS2 getting started](ros2-getting-started.md)
 - [ROS2 tutorials](ros2_tutorials.md)
