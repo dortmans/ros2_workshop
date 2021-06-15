@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     mesa-utils mesa-utils-extra \
     iputils-ping \
     wget curl gnupg2 lsb-release \
+    python3-pip \
     ros-$ROS_DISTRO-desktop \
 		ros-$ROS_DISTRO-gazebo-ros-pkgs \
 		ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
