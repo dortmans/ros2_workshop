@@ -11,7 +11,33 @@ This [ROS2 setup script](https://github.com/Tiryoh/ros2_setup_scripts_ubuntu) ca
 
 Instead of installing ROS2 on your computer you can also opt for using Docker.
 
-To install Docker on Ubuntu follow instructions [here](https://docs.docker.com/engine/install/ubuntu/).
+To install Docker on Ubuntu follow instructions [here](https://docs.docker.com/engine/install/ubuntu/). On Ubuntu it is as simple as running following command:
+```
+curl https://get.docker.com | sh && sudo systemctl --now enable docker
+```
+
+Do not forget to [add your user to the docker group](Post-installation steps for Linux), because we need you to run docker without sudo!
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+Log out and log back in so that your group membership is re-evaluated. 
+Now you should be able to run Docker without sudo.
+
+If you have an NVIDIA GPU, install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker):
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update && sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
+```
+
+Clone the ros2_workshop repository:
+```
+git clone https://github.com/dortmans/ros2_workshop.git
+```
 
 Step into the 'docker' folder of this repository and build a ROS2 docker image as follows::
 ```
@@ -20,8 +46,11 @@ cd docker
 ```
 
 You can modify the Dockerfile to install additional packages.
+
 The build script only has to be run once or each time after making changes to the Dockerfile.
-It should always be run in the directory where the Dockerfile is. To execute the other scripts mentioned on this page from any directory add the following line to your '.bashrc' file:
+It should always be run in the directory where the Dockerfile is. 
+
+To execute the other scripts mentioned on this page from any directory add the following line to your '.bashrc' file:
 ```
 export PATH=$PATH:$HOME/ros2_workshop/docker
 ```
