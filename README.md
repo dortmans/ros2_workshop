@@ -16,7 +16,7 @@ To install Docker on Ubuntu follow instructions [here](https://docs.docker.com/e
 curl https://get.docker.com | sh && sudo systemctl --now enable docker
 ```
 
-Do not forget to [add your user to the docker group](Post-installation steps for Linux), because we need you to run docker without sudo!
+Do not forget to [add your user to the docker group](https://docs.docker.com/engine/install/linux-postinstall/), because we need you to run docker without sudo!
 ```
 sudo groupadd docker
 sudo usermod -aG docker $USER
