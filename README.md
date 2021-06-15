@@ -65,7 +65,11 @@ To start a ROS2 session open a terminal and enter following command:
 start_ros2.sh
 ```
 This will start a ROS2 container in the background which keeps running even when you close the terminal.
-Whenever you want to stop it just open a terminal window and run the stop script:
+
+If you get a docker error message like `could not select device driver .. with capabilities: [[gpu]]` you do not have a working GPU available. Maybe you are running in a Virtual Machine?
+In this case open the start_ros2.sh script in your editor and remove following line: `--gpus all \`
+
+Whenever you want to stop the ROS2 container in the background, just open a terminal window and run the stop script:
 ```
 stop_ros2.sh
 ```
