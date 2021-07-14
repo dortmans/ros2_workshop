@@ -8,4 +8,6 @@
 
 [ros2 service Command Line Tool – Debug ROS2 Services](https://roboticsbackend.com/ros2-service-cmd-line-tool-debug-ros2-services/)
 
+[Passing ROS arguments to nodes via the command-line](https://docs.ros.org/en/foxy/Guides/Node-arguments.html)
+
 [ROS2 Cheats Sheet](https://github.com/ubuntu-robotics/ros2_cheats_sheet)
