@@ -1,5 +1,22 @@
 # ROS2 Parameters
 
+Example YAML config file with wildcard matching all nodes in all namespaces (/**):
+
+```
+/**:
+  ros__parameters:
+    int_number: 42
+
+ns1:
+  node1:
+    ros__parameters:
+      float_param: 0.1
+
+node2:
+  ros__parameters:
+    float_param: 45.2
+```
+
 [rclcpp Params Tutorial – Get and Set ROS2 Params with Cpp](https://roboticsbackend.com/rclcpp-params-tutorial-get-set-ros2-params-with-cpp/)
 
 [rclpy Params Tutorial – Get and Set ROS2 Params with Python](https://roboticsbackend.com/rclpy-params-tutorial-get-set-ros2-params-with-python/)
