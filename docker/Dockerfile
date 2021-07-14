@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 		ros-${ROS_DISTRO}-navigation2 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+#ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 # nvidia-docker2 settings
 ENV NVIDIA_VISIBLE_DEVICES \
