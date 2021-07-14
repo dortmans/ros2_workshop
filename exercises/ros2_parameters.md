@@ -17,6 +17,12 @@ node2:
     float_param: 45.2
 ```
 
+Dump all parameters of a node:
+
+```
+ros2 param dump <node-name> --print
+```
+
 [rclcpp Params Tutorial – Get and Set ROS2 Params with Cpp](https://roboticsbackend.com/rclcpp-params-tutorial-get-set-ros2-params-with-cpp/)
 
 [rclpy Params Tutorial – Get and Set ROS2 Params with Python](https://roboticsbackend.com/rclpy-params-tutorial-get-set-ros2-params-with-python/)
