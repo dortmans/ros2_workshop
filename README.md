@@ -66,8 +66,8 @@ start_ros2.sh
 ```
 This will start a ROS2 container in the background which keeps running even when you close the terminal.
 
-If you get a docker error message like `could not select device driver .. with capabilities: [[gpu]]` you do not have a working GPU available. Maybe you are running in a Virtual Machine?
-In this case open the start_ros2.sh script in your editor and remove following line: `--gpus all \`
+If you get a docker error message like `could not select device driver .. with capabilities: [[gpu]]` you do not have a working NVIDIA GPU. 
+In this case open the start_ros2.sh script in your editor and change the line `GPU_SETTINGS=$NVIDIA_GPU_SETTINGS` to `GPU_SETTINGS=$OTHER_GPU_SETTINGS`.
 
 Whenever you want to stop the ROS2 container in the background, just open a terminal window and run the stop script:
 ```
@@ -88,6 +88,8 @@ It even works with even a graphical application like rviz2:
 ```
 run_ros2.sh rviz2
 ```
+
+If you get an error `Unable to create the rendering window after 100 tries` when trying to run a graphical application like rviz2 you probably have an old GPU that is not supported. In this case you have to revert to software-only graphics rendering. Open the start_ros2.sh script in your editor and change the GPU_SETTINGS line to `GPU_SETTINGS=$OLD_GPU_SETTINGS`. 
 
 ## ROS2 in your browser
 
