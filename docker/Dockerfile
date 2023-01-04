@@ -5,15 +5,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install extra packages
 RUN apt-get update && apt-get install -y \
-		libgl1-mesa-glx libgl1-mesa-dri \
-    mesa-utils mesa-utils-extra \
+    mesa-utils pciutils \
     iputils-ping \
     wget curl gnupg2 lsb-release \
     python3-pip \
     ros-$ROS_DISTRO-desktop \
-		ros-$ROS_DISTRO-gazebo-ros-pkgs \
-		ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
-		ros-${ROS_DISTRO}-navigation2 \
     && rm -rf /var/lib/apt/lists/*
 
 #ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
