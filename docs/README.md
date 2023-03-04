@@ -24,8 +24,11 @@ Node interfaces
 
 - [ROS2 Interfaces](ros2_interfaces.md)
 - [IDL Interface Definition Language](ros2_idl.md)
-- [DDS middleware](ros2_dds.md)
 - [ROS1 Bridge](ros2_ros1_bridge.md)
+
+Node networking
+- [DDS Middleware](ros2_dds.md)
+- [ROS2 Distributed](ros2_distributed.md)
 
 Stacks
 
