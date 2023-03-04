@@ -20,8 +20,6 @@ Following options are available:
 
 ## References
 
-[eProsima DDS Router Documentation](https://eprosima-dds-router.readthedocs.io/en/latest/index.html#)
-
 [16.2. Use ROS 2 with Fast-DDS Discovery Server](https://fast-dds.docs.eprosima.com/en/latest/fastdds/ros2/discovery_server/ros2_discovery_server.html)
 
 [eProsima DDS Router Documentation](https://eprosima-dds-router.readthedocs.io/en/latest/)
