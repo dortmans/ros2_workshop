@@ -4,7 +4,7 @@
 #
 # Author: eric.dortmans@gmail.com
 
-DISTRO=foxy #latest
+DISTRO=humble #latest
 if [ -n "${1}" ]; then
 	DISTRO=${1}
 fi
@@ -21,4 +21,6 @@ docker run --rm \
 	-v /dev/shm:/dev/shm \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /home/$USER/:/home/ubuntu/ \
+	--security-opt seccomp=unconfined \
 	tiryoh/ros2-desktop-vnc:$DISTRO
+

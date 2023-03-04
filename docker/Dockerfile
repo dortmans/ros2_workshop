@@ -1,4 +1,5 @@
-ARG BASE_IMAGE=ros:foxy
+ARG ROS_DISTRO
+ARG BASE_IMAGE=osrf/ros:$ROS_DISTRO-desktop
 FROM $BASE_IMAGE
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -7,20 +8,24 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     mesa-utils pciutils \
     iputils-ping \
-    wget curl gnupg2 lsb-release \
+    wget curl gnupg2 lsb-release ccache coreutils \
     python3-pip \
-    ros-$ROS_DISTRO-desktop \
-    ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
+    ros-$ROS_DISTRO-image-common \
+    ros-$ROS_DISTRO-image-pipeline \
+    ros-$ROS_DISTRO-image-transport-plugins \
+    ros-$ROS_DISTRO-laser-geometry \
+    ros-$ROS_DISTRO-perception-pcl \
+    ros-$ROS_DISTRO-vision-opencv \
+    ros-$ROS_DISTRO-gazebo-ros-pkgs \
+    ros-$ROS_DISTRO-ros-ign \
     && rm -rf /var/lib/apt/lists/*
 
-#ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-
-# nvidia-docker2 settings
-ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
-
+RUN if [ "$ROS_DISTRO" != "foxy" ] ; then \
+		apt-get update && apt-get install -y \
+    ros-$ROS_DISTRO-laser-filters \
+    && rm -rf /var/lib/apt/lists/* \
+    ; fi
+    
 # Create docker user
 ARG USER
 ARG UID
@@ -39,6 +44,10 @@ USER $USER
 WORKDIR /home/$USER
 
 # setup entrypoint
-#COPY ./ros_entrypoint.sh /ros_entrypoint.sh
+COPY ./ros_entrypoint.sh /
+ENTRYPOINT ["/ros_entrypoint.sh"]
+CMD ["/bin/bash"]
+
+
 
 
