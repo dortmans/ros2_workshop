@@ -1,27 +1,20 @@
 # ROS2 DDS
 
-ROS2 uses [DDS](https://en.wikipedia.org/wiki/Data_Distribution_Service) as middleware (RMW: ROS Middleware) for communication between nodes. It is compatible with multiple DDS implementations.
-
-FastDDS (FastRTPS) and CycloneDDS currently qualify as Tier 1 RMW implementations. FastDDS is the default in the ROS 2 Foxy release. CycloneDDS will become the default in ROS 2 Galactic. 
-
-## Installation and configuration of CycloneDDS
+ROS2 uses [DDS](https://en.wikipedia.org/wiki/Data_Distribution_Service) as ROS middleware (RMW) for communication between nodes. The are multiple DDS implementations. FastDDS (formerly named FastRTPS) and CycloneDDS currently qualify as Tier 1 RMW implementations.
 
 To check which RMW you are currently using:
 ```
 ros2 doctor --report | grep middleware
 ```
 
-[Working with Eclipse Cyclone DDS](https://docs.ros.org/en/foxy/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.html) explains how to install and utilize Cyclone DDS.
+## Switching between RMW Implementations
 
-To install it:
-```
-sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp
-```
-
-The environment variable `RMW_IMPLEMENTATION` determines which RMW (ROS MiddleWare) implementation will be used. To switch to Cyclone DDS:
+Switching between RMW implementations is easy. 
+The environment variable `RMW_IMPLEMENTATION` determines which RMW (ROS MiddleWare) implementation will be used. For instance to switch to Cyclone DDS enter following command in each command window:
 ```
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ```
+If you want to make this more permanent add it to your `.bashrc` file.
 
 If you have multiple network interfaces (e.g. Ethernet and Wifi) you should also select the network interface that Cyclone DDS should use:
 ```
@@ -33,11 +26,11 @@ Use following command to find the name of your Wifi interface:
 iw dev | awk '$1=="Interface"{print $2}'
 ```
 
-Note: To install iw run `sudo apt install iw`.
+Note: To install iw execute command: '`sudo apt install iw`'.
 
 ## Domain ID
 
-In DDS, the primary mechanism for having different logical networks share a physical network is known as the [DOMAIN ID](https://docs.ros.org/en/foxy/Concepts/About-Domain-ID.html). ROS 2 nodes on the same domain can freely discover and send messages to each other, while ROS 2 nodes on different domains cannot. To avoid interference between different groups of computers running ROS 2 on the same network, a different domain ID should be set for each group.
+In DDS, the primary mechanism for having different logical networks share a physical network is known as the [DOMAIN ID](https://docs.ros.org/en/rolling/Concepts/About-Domain-ID.html). ROS 2 nodes on the same domain can freely discover and send messages to each other, while ROS 2 nodes on different domains cannot. To avoid interference between different groups of computers running ROS 2 on the same network, a different domain ID should be set for each group.
 
 DDS uses UDP multicast to communicate the metadata allowing different node to discover each other and establish communication. All the machines that will be talking to each other must satisfy two constraints. First, they must all be within the same multicast domain on your network. Secondly, then they must have the same ROS_DOMAIN_ID. 
 
@@ -47,7 +40,7 @@ So, if you don’t want to interfere with other DDS systems (ROS or non-ROS) on 
 export ROS_DOMAIN_ID=42
 ```
 
-Note: You can add all above described export commands to your .bashrc file if you want them to be automatically executed in each terminal you open.
+Add this to your .bashrc file if you want it to be automatically executed in each terminal you open.
 
 ## Quality of Service
 

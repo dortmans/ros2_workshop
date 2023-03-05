@@ -1,4 +1,4 @@
-# Exercises and background info
+# Practical notes and background info
 
 General
 
