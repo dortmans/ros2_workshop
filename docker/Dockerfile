@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-vision-opencv \
     ros-$ROS_DISTRO-gazebo-ros-pkgs \
     ros-$ROS_DISTRO-ros-ign \
+    ros-$ROS_DISTRO-tf2-tools \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if [ "$ROS_DISTRO" != "foxy" ] ; then \
