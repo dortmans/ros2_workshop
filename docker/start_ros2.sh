@@ -15,11 +15,10 @@ docker run -d -t --rm \
   -e XAUTHORITY \
   -e QT_X11_NO_MITSHM=1 \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v /dev/shm:/dev/shm \
   -v /etc/timezone:/etc/timezone:ro \
   -v /etc/localtime:/etc/localtime:ro \
   -v /home/$USER/:/home/$DOCKER_USER/ \
-  --device=/dev/dri \
+  -v /dev:/dev \
   --privileged --net=host \
   $GPU_SETTINGS \
   --name $CONTAINER_NAME \
