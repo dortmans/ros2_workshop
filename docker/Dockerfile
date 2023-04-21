@@ -7,8 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install extra packages
 RUN apt-get update && apt-get install -y \
     mesa-utils pciutils \
-    iputils-ping \
+    iputils-ping net-tools tcpdump\
     wget curl gnupg2 lsb-release ccache coreutils \
+    vim-tiny \
     python3-pip \
     ros-$ROS_DISTRO-image-common \
     ros-$ROS_DISTRO-image-pipeline \
@@ -19,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-gazebo-ros-pkgs \
     ros-$ROS_DISTRO-ros-ign \
     ros-$ROS_DISTRO-tf2-tools \
+    ros-$ROS_DISTRO-teleop-tools \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if [ "$ROS_DISTRO" != "foxy" ] ; then \
