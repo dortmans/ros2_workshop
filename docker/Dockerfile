@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install extra packages
 RUN apt-get update && apt-get install -y \
     mesa-utils pciutils \
-    iputils-ping net-tools tcpdump iperf \
+    iputils-ping net-tools tcpdump iperf iproute2 \
     wget curl gnupg2 lsb-release ccache coreutils \
     vim-tiny \
     python3-pip \
