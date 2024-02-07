@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-ros-ign \
     ros-$ROS_DISTRO-tf2-tools \
     ros-$ROS_DISTRO-teleop-tools \
-    ros-$ROS_DISTRO-rmw-cyclonedds-cpp
+    ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if [ "$ROS_DISTRO" != "foxy" ] ; then \
